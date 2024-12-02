@@ -24,17 +24,19 @@ public class BackScript : MonoBehaviour
         
     }
 
-    void NextString(){
+    public void NextSentence(){
+        //when you press button A
         scriptIndex++;
         if(scriptIndex < sentences.Length){
             text.text = sentences[scriptIndex];
         }
         else{
-            StringEnd();
+            ScriptEnd();
         }
     }
 
-    void StringEnd(){
-
+    void ScriptEnd(){
+        text.text = "Script is finished! Congratulations~";
+        //Stop the game or do something else
     }
 }
