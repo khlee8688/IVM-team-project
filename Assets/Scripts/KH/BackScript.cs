@@ -7,6 +7,7 @@ using TMPro;
 public class BackScript : MonoBehaviour
 {
     [SerializeField] TMP_Text text;
+    [SerializeField] Button menuButton;
     public string script;
     private int scriptIndex = 0;
     private string[] sentences;
@@ -14,14 +15,20 @@ public class BackScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sentences = script.Split('.');
+        sentences = script.Split(". ");
         text.text = sentences[scriptIndex];
+        menuButton.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void PreviousSentence(){
+        if(scriptIndex > 0) scriptIndex--;
+        text.text = sentences[scriptIndex];
     }
 
     public void NextSentence(){
@@ -37,6 +44,6 @@ public class BackScript : MonoBehaviour
 
     void ScriptEnd(){
         text.text = "Script is finished! Congratulations~";
-        //Stop the game or do something else
+        menuButton.gameObject.SetActive(true);
     }
 }
