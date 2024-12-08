@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scenes_Chu/University.unity
     guid: f8477614f57cc47729247ee06748de52
+  - enabled: 1
+    path: Assets/Scenes/Scenes_Chu/MeetingRoom.unity
+    guid: 0748f2c558239403db58ace472958822
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 5ce614fac0ca7044cab4c75ded3ffdf9, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: dd116e32e7b930842920b15e2f7ef5a4, type: 2}
