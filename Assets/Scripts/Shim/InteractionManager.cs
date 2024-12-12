@@ -52,7 +52,19 @@ public class InteractionManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning($"Selected NPC {rootObj.name} does not implement IInteractable.");
+            // 하위 오브젝트에서 IInteractable을 검색
+            IInteractable[] interactables = target.GetComponentsInChildren<IInteractable>();
+            if (interactables.Length > 0)
+            {
+                foreach (IInteractable childInteractable in interactables)
+                {
+                    childInteractable.OnInteract();
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"Selected NPC {rootObj.name} and its children do not implement IInteractable.");
+            }
         }
     }
 }

@@ -82,6 +82,7 @@ public class Shim_BackScript : MonoBehaviour
             text.text = "Script is finished! Congratulations~";
         }
         menuButton.gameObject.SetActive(true);
+        // menuButton.GetComponent<Collider>().SetActive(true);
     }
 
     public int GetSentencesLength()

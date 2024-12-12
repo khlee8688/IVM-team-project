@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
         if (Physics.Raycast(controller.transform.position, controller.transform.forward, out hit)
             && hit.collider != null
-            && hit.collider.gameObject.CompareTag("NPC"))
+            && (hit.collider.gameObject.CompareTag("NPC") || hit.collider.gameObject.CompareTag("Button")))
         {
             SetActiveRayObjects(true, num);
             endPoint = hit.point;
