@@ -7,12 +7,19 @@ using QuestSystem;
 public class Audience : MonoBehaviour, IInteractable
 {
     bool isMissionTriggered;
-    [SerializeField] private Animator animator;
+    // [SerializeField] private Animator animator;
+    Animator animator;
+    [SerializeField] QuestManager questManager;
     public int QuestTime;
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
+        if (animator == null)
+        {
+            Debug.LogError("Animator component not found on this GameObject.");
+        }
         isMissionTriggered = false;
     }
 
@@ -24,29 +31,53 @@ public class Audience : MonoBehaviour, IInteractable
 
     public void OnInteract(int QuestType)
     {
-        // int 값을 EnumQuestType으로 변환
-        if (!Enum.IsDefined(typeof(EnumQuestType), QuestType))
-        {
-            Debug.LogWarning($"Invalid quest type value: {QuestType}");
-            return;
-        }
+        this.gameObject.SetActive(true);
+        Debug.Log("Audience: " + this.name + ", OnInteract function called, QuestType is " + QuestType);
 
-        EnumQuestType equestsType = (EnumQuestType)QuestType;
+        // // int 값을 EnumQuestType으로 변환
+        // if (!Enum.IsDefined(typeof(EnumQuestType), QuestType))
+        // {
+        //     Debug.LogWarning($"Invalid quest type value: {QuestType}");
+        //     return;
+        // }
+
+        // EnumQuestType equestsType = (EnumQuestType)QuestType;
 
         // Enum 값에 따라 동작 실행
-        switch (equestsType)
+        // switch (equestsType)
+        // {
+        //     case EnumQuestType.RaiseHand:
+        //         Debug.Log("RaiseHand quest activated.");
+        //         HandleRaiseHandQuest(); // isMissionTriggered을 true로 바꿈
+        //         break;
+
+        //     case EnumQuestType.ClapHands:
+        //         Debug.Log("ClapHands quest activated.");
+        //         HandleClapHandsQuest();
+        //         break;
+
+        //     case EnumQuestType.LookSide:
+        //         Debug.Log("Wave quest activated.");
+        //         HandleLookSideQuest();
+        //         break;
+
+        //     default:
+        //         Debug.LogWarning("Unknown quest type.");
+        //         break;
+        // }
+        switch (QuestType)
         {
-            case EnumQuestType.RaiseHand:
+            case 1:
                 Debug.Log("RaiseHand quest activated.");
-                HandleRaiseHandQuest();
+                HandleRaiseHandQuest(); // isMissionTriggered을 true로 바꿈
                 break;
 
-            case EnumQuestType.ClapHands:
+            case 2:
                 Debug.Log("ClapHands quest activated.");
                 HandleClapHandsQuest();
                 break;
 
-            case EnumQuestType.LookSide:
+            case 3:
                 Debug.Log("Wave quest activated.");
                 HandleLookSideQuest();
                 break;
@@ -62,9 +93,8 @@ public class Audience : MonoBehaviour, IInteractable
         if (isMissionTriggered)
         {
             // 추가 동작
-            // HandleRaiseHandQuest()에서 isMissionTriggered이 true로 변하고,
-            // QuestTime 시간이 아직 다 지나지 않아 isMissionTriggered이 다시 false로 변하지 않았다면
-            // 
+            Debug.Log("Mission complete");
+            questManager.AddOneToSuccessQuestNumber();
         }
     }
 
@@ -72,6 +102,7 @@ public class Audience : MonoBehaviour, IInteractable
     {
         if (animator != null)
         {
+            Debug.Log("SetBool functions are called");
             animator.SetBool("isIdle", idle);
             animator.SetBool("isClap", clap);
             animator.SetBool("isLookSide", lookSide);
@@ -88,9 +119,22 @@ public class Audience : MonoBehaviour, IInteractable
         isMissionTriggered = true;
         // 손 들기 모션 처리 코드
         SetAnimatorBool(false, false, false, true);
-        // QuestTime 시간 동안 대기
+        // QuestTime 시간 동안 대기, 이 변수는 에디터에서 값 할당, 5초로 가정 
         // 시간 지나면 isMissionTriggered를 false로 전환, BackToIdle() 함수 호출
+        // 코루틴 시작: QuestTime 시간 후 아이들 상태로 돌아가기
+        StartCoroutine(RaiseHandQuestTimer());
+    }
 
+    private IEnumerator RaiseHandQuestTimer()
+    {
+        // QuestTime 시간 동안 대기
+        yield return new WaitForSeconds(QuestTime);
+
+        // 시간이 지나면 아이들 상태로 복귀
+        BackToIdle();
+
+        // 미션 트리거 해제
+        isMissionTriggered = false;
     }
 
     private void HandleClapHandsQuest()
