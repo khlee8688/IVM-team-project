@@ -21,6 +21,6 @@ public class Shim_MenuButton : MonoBehaviour, IInteractable
     public void ToMainMenu()
     {
         Debug.Log("Shim_MenuButton, ToMainMenu() function called");
-        SceneManager.LoadScene(mainMenuBuildId);
+        SceneManager.LoadScene("MapSelectScene");
     }
 }
