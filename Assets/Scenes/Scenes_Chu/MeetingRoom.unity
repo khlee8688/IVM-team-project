@@ -5944,7 +5944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 67928d24609c54284be814a3d55bcd15, type: 3}
       propertyPath: m_Name
-      value: X Bot (1)
+      value: X Bot 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 67928d24609c54284be814a3d55bcd15, type: 3}
       propertyPath: m_Controller
@@ -9357,7 +9357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 67928d24609c54284be814a3d55bcd15, type: 3}
       propertyPath: m_Name
-      value: X Bot
+      value: X Bot 0
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 67928d24609c54284be814a3d55bcd15, type: 3}
       propertyPath: m_Controller
