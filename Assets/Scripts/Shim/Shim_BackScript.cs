@@ -73,14 +73,15 @@ public class Shim_BackScript : MonoBehaviour
     {
         // text.text = "Script is finished! Congratulations~";
         // menuButton.gameObject.SetActive(true);
-        if (questManager.GetSuccessQuestNumber() < questManager.QuestNumber)
-        {
-            text.text = "Script is finished. But you didn't finish the missions. Try one more";
-        }
-        else
-        {
-            text.text = "Script is finished! Congratulations~";
-        }
+        // if (questManager.GetSuccessQuestNumber() < questManager.QuestNumber)
+        // {
+        //     text.text = "Script is finished. But you didn't finish the missions. Try one more";
+        // }
+        // else
+        // {
+        //     text.text = "Script is finished! Congratulations~";
+        // }
+        text.text = "Script is finished! Congratulations~";
         menuButton.gameObject.SetActive(true);
         // menuButton.GetComponent<Collider>().SetActive(true);
     }

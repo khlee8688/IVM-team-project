@@ -3254,8 +3254,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 691266894}
-  menuButton: {fileID: 0}
-  QuestManager: {fileID: 0}
+  menuButton: {fileID: 1303210260}
+  QuestManager: {fileID: 664284446}
   script: AAAAA. BBBBB. CCCCC. DDDDD. EEEEE. FFFFF
 --- !u!114 &472010895
 MonoBehaviour:
@@ -3545,18 +3545,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buttonClickActions:
-  - Title: 
-    Button: 0
+  - Title: NextSentence
+    Button: 1
     ButtonMode: 0
     Callback:
       m_PersistentCalls:
-        m_Calls: []
-  - Title: 
-    Button: 0
+        m_Calls:
+        - m_Target: {fileID: 472010894}
+          m_TargetAssemblyTypeName: Shim_BackScript, Assembly-CSharp
+          m_MethodName: NextSentence
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - Title: PreviousSentence
+    Button: 2
     ButtonMode: 0
     Callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 472010894}
+          m_TargetAssemblyTypeName: Shim_BackScript, Assembly-CSharp
+          m_MethodName: PreviousSentence
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &543264041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5065,7 +5089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Script: {fileID: 472010893}
-  QuestNumber: 0
+  QuestNumber: 1
   QuestIndex: 
 --- !u!4 &664284448
 Transform:
@@ -6553,14 +6577,66 @@ PrefabInstance:
       value: NPC
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 67928d24609c54284be814a3d55bcd15, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: de7e757fa0edf334988286a02607fa0c, type: 3}
+    - target: {fileID: 5866666021909216657, guid: 67928d24609c54284be814a3d55bcd15, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: e9fc54875bb3c46808c377f2079572ea, type: 2}
+      objectReference: {fileID: 9100000, guid: 80a0623eccf5d1f42861d95e3376a1c4, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67928d24609c54284be814a3d55bcd15, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 883325278}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67928d24609c54284be814a3d55bcd15, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 883325279}
   m_SourcePrefab: {fileID: 100100000, guid: 67928d24609c54284be814a3d55bcd15, type: 3}
+--- !u!1 &883325277 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 67928d24609c54284be814a3d55bcd15, type: 3}
+  m_PrefabInstance: {fileID: 883325276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &883325278
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883325277}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &883325279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883325277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2dd18f573a8c244d95e14d2068ff6f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questManager: {fileID: 664284447}
+  QuestTime: 5
 --- !u!4 &883325280 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4629217466970814, guid: 7d255bce5b634604dbc1ed9f1e878f20, type: 3}
@@ -7960,11 +8036,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90348153dce9edb46b219624edf114c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
-  rayMaterial: {fileID: 0}
-  insideRayMaterial: {fileID: 0}
+  player: {fileID: 1609275395}
+  leftHand: {fileID: 463128203}
+  rightHand: {fileID: 1308613624}
+  rayMaterial: {fileID: 2100000, guid: 6c13902f4babfc64997ab51a21de37d2, type: 2}
+  insideRayMaterial: {fileID: 2100000, guid: fb46eac17bafb9043ba1c06b71e08bb9, type: 2}
 --- !u!4 &1131409486
 Transform:
   m_ObjectHideFlags: 0
@@ -10290,14 +10366,66 @@ PrefabInstance:
       value: NPC
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 67928d24609c54284be814a3d55bcd15, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: de7e757fa0edf334988286a02607fa0c, type: 3}
+    - target: {fileID: 5866666021909216657, guid: 67928d24609c54284be814a3d55bcd15, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: e9fc54875bb3c46808c377f2079572ea, type: 2}
+      objectReference: {fileID: 9100000, guid: 80a0623eccf5d1f42861d95e3376a1c4, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67928d24609c54284be814a3d55bcd15, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1489158540}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67928d24609c54284be814a3d55bcd15, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1489158541}
   m_SourcePrefab: {fileID: 100100000, guid: 67928d24609c54284be814a3d55bcd15, type: 3}
+--- !u!1 &1489158539 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 67928d24609c54284be814a3d55bcd15, type: 3}
+  m_PrefabInstance: {fileID: 1489158538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1489158540
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489158539}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1489158541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489158539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2dd18f573a8c244d95e14d2068ff6f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questManager: {fileID: 664284447}
+  QuestTime: 5
 --- !u!1 &1491029374
 GameObject:
   m_ObjectHideFlags: 0
