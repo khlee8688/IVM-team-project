@@ -19,5 +19,13 @@ public class MapSelection : MonoBehaviour
         {
             SceneManager.LoadScene("MeetingRoom");
         }
+        else if (OVRInput.GetDown(OVRInput.Button.Two))
+        {
+            SceneManager.LoadScene("University");
+        }
+        else if (OVRInput.GetDown(OVRInput.Button.Three))
+        {
+            SceneManager.LoadScene("School");
+        }
     }
 }
