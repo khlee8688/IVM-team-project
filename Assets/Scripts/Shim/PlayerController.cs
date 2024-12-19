@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public GameObject rightHand;
     public Material rayMaterial;
     public Material insideRayMaterial;
+    public GameObject highlightEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -52,11 +53,34 @@ public class PlayerController : MonoBehaviour
         insideRayCylinder2 = CreateRay("InsideRayCylinder2", insideRayMaterial, new Vector3(0.005f, 1f, 0.005f));
 
         SetActiveRayObjects(false);
+
+        highlightEffect.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        var mainCamera = Camera.main;
+        RaycastHit hit;
+        if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit)
+            && hit.collider != null)
+        {
+            if (hit.collider.gameObject.CompareTag("NPC"))
+            {
+                highlightEffect.transform.position = hit.collider.gameObject.transform.position + new Vector3(0, 1, 0);
+            }
+            else if (hit.collider.gameObject.CompareTag("Button"))
+            {
+                highlightEffect.transform.position = hit.collider.gameObject.transform.position;
+            }
+            highlightEffect.SetActive(true);
+        }
+        else
+        {
+            highlightEffect.SetActive(false);
+        }
+
+
         UpdateRay(rightHand, rightHand.transform.position, ref cursorPoint1, ref rayCylinder1, ref insideRayCylinder1, 1);
         UpdateRay(leftHand, leftHand.transform.position, ref cursorPoint2, ref rayCylinder2, ref insideRayCylinder2, 2);
     }
