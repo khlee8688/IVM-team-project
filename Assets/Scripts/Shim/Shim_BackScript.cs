@@ -11,6 +11,7 @@ public class Shim_BackScript : MonoBehaviour
     [SerializeField] TMP_Text text;
     [SerializeField] Button menuButton;
     [SerializeField] GameObject QuestManager;
+    public GameObject timerObject;
     QuestManager questManager;
     public string script;
     private int scriptIndex = 0;
@@ -24,12 +25,33 @@ public class Shim_BackScript : MonoBehaviour
         sentences = script.Split(". ");
         text.text = sentences[scriptIndex];
         menuButton.gameObject.SetActive(false);
+        if (timerObject == null)
+        {
+            Debug.LogError("timerObject is not assigned");
+            return;
+        }
+        else
+        {
+            StartTimer();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    private void StartTimer()
+    {
+        //InteractionManager.Instance.Interact(timer.gameObject);
+        timerObject.GetComponent<Timer>().UpdateTriggerTime();
+    }
+
+    private void EndTimer()
+    {
+        //InteractionManager.Instance.Interact(timer.gameObject);
+        timerObject.GetComponent<Timer>().UpdateTriggerTime();
     }
 
     public void PreviousSentence()
@@ -81,8 +103,18 @@ public class Shim_BackScript : MonoBehaviour
         // {
         //     text.text = "Script is finished! Congratulations~";
         // }
-        text.text = "Script is finished! Congratulations~";
+        EndTimer();
+        float presentTime = timerObject.GetComponent<Timer>().GetTriggerIntervalTime();
+        int elapsedSeconds = Mathf.FloorToInt(presentTime);
+        int minutes = elapsedSeconds / 60;
+        int seconds = elapsedSeconds % 60;
+        // $"{minutes:D2}:{seconds:D2}";
+        // text.text = "Script is finished! Congratulations~\n"
+        //     + "Presented for " + minutes + " minutes " + seconds + " seconds.";
+        text.text = "Script is finished! Congratulations~\n"
+        + "Presented for " + minutes + " minutes " + seconds + " seconds.";
         menuButton.gameObject.SetActive(true);
+
         // menuButton.GetComponent<Collider>().SetActive(true);
     }
 

@@ -5934,6 +5934,7 @@ MonoBehaviour:
   rightHand: {fileID: 28390544}
   rayMaterial: {fileID: 2100000, guid: 6c13902f4babfc64997ab51a21de37d2, type: 2}
   insideRayMaterial: {fileID: 2100000, guid: fb46eac17bafb9043ba1c06b71e08bb9, type: 2}
+  highlightEffect: {fileID: 1605988606}
 --- !u!4 &807361140
 Transform:
   m_ObjectHideFlags: 0
@@ -10302,6 +10303,7 @@ MonoBehaviour:
   text: {fileID: 2048730436}
   menuButton: {fileID: 1753849739}
   QuestManager: {fileID: 1155821234}
+  timerObject: {fileID: 1858164145}
   script: AAAAA. BBBBB. CCCCC. DDDDD. EEEEE. FFFFF. GGGGG. HHHHH. IIIII. JJJJJ
 --- !u!114 &1463963952
 MonoBehaviour:
@@ -11541,6 +11543,50 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1605988606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1605988608}
+  - component: {fileID: 1605988607}
+  m_Layer: 0
+  m_Name: HightlightEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!122 &1605988607
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605988606}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4286611584
+  m_Size: 0.5
+--- !u!4 &1605988608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605988606}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.479, y: 1.506, z: -2.828}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1606441097
 GameObject:
   m_ObjectHideFlags: 0
@@ -13487,6 +13533,50 @@ SkinnedMeshRenderer:
     m_Center: {x: 3.5085697, y: 0.084750324, z: -0.17565808}
     m_Extent: {x: 0.10651207, y: 0.1877416, z: 0.45612457}
   m_DirtyAABB: 0
+--- !u!1 &1858164145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1858164147}
+  - component: {fileID: 1858164146}
+  m_Layer: 0
+  m_Name: Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1858164146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858164145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44d90b33287734248b5aebd5f7a2bb88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1858164147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858164145}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.328445, y: 3.0041676, z: 3.1332095}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1866621390
 GameObject:
   m_ObjectHideFlags: 0
@@ -20566,3 +20656,5 @@ SceneRoots:
   - {fileID: 1463963953}
   - {fileID: 807361140}
   - {fileID: 705661323}
+  - {fileID: 1858164147}
+  - {fileID: 1605988608}
