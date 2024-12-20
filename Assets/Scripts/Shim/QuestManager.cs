@@ -6,7 +6,7 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour, IInteractable
 {
     GameObject[] NPC;
-    [SerializeField] GameObject Script;
+    GameObject Script;
     Shim_BackScript backScript;
     public int QuestNumber; // 총 퀘스트의 개수
     public int[] QuestIndex;
@@ -25,14 +25,36 @@ public class QuestManager : MonoBehaviour, IInteractable
     {
         NPC = GameObject.FindGameObjectsWithTag("NPC");
         SuccessQuestNumber = 0;
+        Script = GameObject.Find("TextPosition");
         backScript = Script.GetComponent<Shim_BackScript>();
-        if (backScript != null)
-        {
-            // QuestIndex 배열의 크기를 QuestNumber로 설정
-            // 1부터 backScript.GetSentencesLength()-1까지의 숫자 중 QuestIndex 배열의 크기만큼 숫자 고르기
-            // 고른 숫자들 오름차순으로 정렬해서 QuestIndex에 넣기
-            QuestIndex = SelectUniqueQuestIndices(QuestNumber, backScript.GetSentencesLength() - 2);
-        }
+        // if (Script == null)
+        // {
+        //     Debug.LogError("Script is null");
+        // }
+        // else
+        // {
+        //     backScript = Script.GetComponent<Shim_BackScript>();
+        // }
+
+        // if (backScript != null)
+        // {
+        //     // QuestIndex 배열의 크기를 QuestNumber로 설정
+        //     // 1부터 backScript.GetSentencesLength()-1까지의 숫자 중 QuestIndex 배열의 크기만큼 숫자 고르기
+        //     // 고른 숫자들 오름차순으로 정렬해서 QuestIndex에 넣기
+        //     // QuestIndex = SelectUniqueQuestIndices(QuestNumber, backScript.GetSentencesLength() - 2);
+        //     QuestIndex = SelectUniqueQuestIndices(QuestNumber, Script.GetComponent<Shim_BackScript>().GetSentencesLength() - 2);
+        // }
+        // if (Script != null)
+        // {
+        //     Debug.Log("GameObject Script is assigned");
+        //     QuestIndex = SelectUniqueQuestIndices(QuestNumber, GameObject.Find("TextPosition").GetComponent<Shim_BackScript>().GetSentencesLength() - 2);
+        // }
+        // else
+        // {
+        //     Debug.LogError("GameObject Script is not assigned");
+        // }
+        QuestIndex = SelectUniqueQuestIndices(QuestNumber, backScript.GetSentencesLength() - 2);
+
         Debug.Log("QuestIndex is");
         foreach (int n in QuestIndex)
         {
@@ -83,32 +105,44 @@ public class QuestManager : MonoBehaviour, IInteractable
 
     public void OnInteract(int QuestType)
     {
-        Debug.Log("QuestManager OnInteract(int QuestType) function is called");
-        // NPC가 QuestType 값에 따른 행동을 하도록 이벤트 발생
-
-        if (NPC.Length == 0)
+        switch (QuestType)
         {
-            Debug.LogWarning("No NPCs found in the scene.");
-            return;
+            case 1:
+                Debug.Log("QuestManager OnInteract(int QuestType) function is called");
+                // NPC가 QuestType 값에 따른 행동을 하도록 이벤트 발생
+
+                if (NPC.Length == 0)
+                {
+                    Debug.LogWarning("No NPCs found in the scene.");
+                    return;
+                }
+
+                // 랜덤으로 NPC 배열에서 하나 선택
+                int randomIndex = Random.Range(0, NPC.Length);
+                GameObject selectedNPC = NPC[randomIndex];
+
+                // 선택된 NPC와 관련된 작업 수행
+                Debug.Log($"Randomly selected NPC: {selectedNPC.name} for QuestType {QuestType}");
+
+                // 예: 선택된 NPC에게 퀘스트 전달
+                var npcInteractable = selectedNPC.GetComponent<IInteractable>();
+                if (npcInteractable != null)
+                {
+                    npcInteractable.OnInteract(QuestType);
+                }
+                else
+                {
+                    Debug.LogWarning($"Selected NPC {selectedNPC.name} does not implement IInteractable.");
+                }
+                break;
+            case 2: // 모든 NPC가 박수 치기
+                foreach (GameObject npc in NPC)
+                {
+                    InteractionManager.Instance.Interact(npc, QuestType);
+                }
+                break;
         }
 
-        // 랜덤으로 NPC 배열에서 하나 선택
-        int randomIndex = Random.Range(0, NPC.Length);
-        GameObject selectedNPC = NPC[randomIndex];
-
-        // 선택된 NPC와 관련된 작업 수행
-        Debug.Log($"Randomly selected NPC: {selectedNPC.name} for QuestType {QuestType}");
-
-        // 예: 선택된 NPC에게 퀘스트 전달
-        var npcInteractable = selectedNPC.GetComponent<IInteractable>();
-        if (npcInteractable != null)
-        {
-            npcInteractable.OnInteract(QuestType);
-        }
-        else
-        {
-            Debug.LogWarning($"Selected NPC {selectedNPC.name} does not implement IInteractable.");
-        }
     }
 
     public void OnInteract()
@@ -131,3 +165,5 @@ public class QuestManager : MonoBehaviour, IInteractable
         SuccessQuestNumber++;
     }
 }
+
+

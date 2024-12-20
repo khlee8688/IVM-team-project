@@ -75,6 +75,10 @@ public class PlayerController : MonoBehaviour
                 highlightEffect.transform.position = hit.collider.gameObject.transform.position;
                 highlightEffect.SetActive(true);
             }
+            else
+            {
+                highlightEffect.SetActive(false);
+            }
         }
         else
         {

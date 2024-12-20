@@ -1552,7 +1552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2dd18f573a8c244d95e14d2068ff6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questManager: {fileID: 1155821235}
+  questManager: {fileID: 1033615779}
   QuestTime: 5
 --- !u!1 &191480601
 GameObject:
@@ -6674,7 +6674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2dd18f573a8c244d95e14d2068ff6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questManager: {fileID: 1155821235}
+  questManager: {fileID: 1033615779}
   QuestTime: 5
 --- !u!1 &899240007
 GameObject:
@@ -7398,7 +7398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2dd18f573a8c244d95e14d2068ff6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questManager: {fileID: 1155821235}
+  questManager: {fileID: 1033615779}
   QuestTime: 5
 --- !u!1 &1019478099
 GameObject:
@@ -7726,6 +7726,52 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.034548517, y: 0.00051147584, z: 0.000073043164}
     m_Extent: {x: 0.0009967126, y: 0.0020704698, z: 0.0044533596}
   m_DirtyAABB: 0
+--- !u!1 &1033615778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1033615780}
+  - component: {fileID: 1033615779}
+  m_Layer: 0
+  m_Name: QuestManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1033615779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033615778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb4107b30c2b66f4490acb4d61a375be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestNumber: 5
+  QuestIndex: 
+--- !u!4 &1033615780
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033615778}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.7129833, y: 1.1455626, z: -17.363607}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1050408105
 GameObject:
   m_ObjectHideFlags: 0
@@ -8545,7 +8591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2dd18f573a8c244d95e14d2068ff6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questManager: {fileID: 1155821235}
+  questManager: {fileID: 1033615779}
   QuestTime: 5
 --- !u!1 &1124814042
 GameObject:
@@ -8794,53 +8840,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4402626770144814, guid: a76d0962e5aaba2479107524e448f23d, type: 3}
   m_PrefabInstance: {fileID: 1155601899}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1155821234
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1155821236}
-  - component: {fileID: 1155821235}
-  m_Layer: 0
-  m_Name: QuestManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1155821235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155821234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb4107b30c2b66f4490acb4d61a375be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Script: {fileID: 1463963950}
-  QuestNumber: 5
-  QuestIndex: 
---- !u!4 &1155821236
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155821234}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.33768225, y: 0.47542048, z: 3.3266606}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1165920124
 GameObject:
   m_ObjectHideFlags: 0
@@ -9557,7 +9556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2dd18f573a8c244d95e14d2068ff6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questManager: {fileID: 1155821235}
+  questManager: {fileID: 1033615779}
   QuestTime: 5
 --- !u!1 &1316001962
 GameObject:
@@ -10302,7 +10301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 2048730436}
   menuButton: {fileID: 1753849739}
-  QuestManager: {fileID: 1155821234}
+  QuestManager: {fileID: 1033615778}
   timerObject: {fileID: 1858164145}
   script: AAAAA. BBBBB. CCCCC. DDDDD. EEEEE. FFFFF. GGGGG. HHHHH. IIIII. JJJJJ
 --- !u!114 &1463963952
@@ -12045,7 +12044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2dd18f573a8c244d95e14d2068ff6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questManager: {fileID: 1155821235}
+  questManager: {fileID: 1033615779}
   QuestTime: 5
 --- !u!1001 &1679906414
 PrefabInstance:
@@ -12158,7 +12157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2dd18f573a8c244d95e14d2068ff6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questManager: {fileID: 1155821235}
+  questManager: {fileID: 1033615779}
   QuestTime: 5
 --- !u!1 &1685811763
 GameObject:
@@ -14815,7 +14814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2dd18f573a8c244d95e14d2068ff6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questManager: {fileID: 1155821235}
+  questManager: {fileID: 1033615779}
   QuestTime: 5
 --- !u!1 &2039193034
 GameObject:
@@ -20652,9 +20651,9 @@ SceneRoots:
   - {fileID: 2024764994}
   - {fileID: 307136118}
   - {fileID: 23764003}
-  - {fileID: 1155821236}
   - {fileID: 1463963953}
   - {fileID: 807361140}
   - {fileID: 705661323}
   - {fileID: 1858164147}
   - {fileID: 1605988608}
+  - {fileID: 1033615780}

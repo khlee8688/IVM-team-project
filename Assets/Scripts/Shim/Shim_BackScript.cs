@@ -104,6 +104,7 @@ public class Shim_BackScript : MonoBehaviour
         //     text.text = "Script is finished! Congratulations~";
         // }
         EndTimer();
+        InteractionManager.Instance.Interact(questManager.gameObject, 2);
         float presentTime = timerObject.GetComponent<Timer>().GetTriggerIntervalTime();
         int elapsedSeconds = Mathf.FloorToInt(presentTime);
         int minutes = elapsedSeconds / 60;
@@ -123,3 +124,4 @@ public class Shim_BackScript : MonoBehaviour
         return sentences.Length;
     }
 }
+
