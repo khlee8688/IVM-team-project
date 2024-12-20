@@ -200,7 +200,8 @@ public class PlayerController : MonoBehaviour
             RaycastHit hit2;
             if (Physics.Raycast(leftHand.transform.position, leftHand.transform.forward, out hit2))
             {
-                player.transform.position = new Vector3(hit2.point.x, player.transform.position.y, hit2.point.z);
+                // player.transform.position = new Vector3(hit2.point.x, player.transform.position.y, hit2.point.z);
+                InteractionManager.Instance.Interact(hit2.collider.gameObject);
             }
         }
     }
