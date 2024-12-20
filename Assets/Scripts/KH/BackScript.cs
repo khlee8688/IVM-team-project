@@ -15,15 +15,22 @@ public class BackScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sentences = script.Split(". ");
-        text.text = sentences[scriptIndex];
         menuButton.gameObject.SetActive(false);
+        text.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void SetScript(string str){
+        script = str;
+        sentences = script.Split(". ");
+        scriptIndex = 0;
+        text.text = sentences[scriptIndex];
+        text.gameObject.SetActive(true);
     }
 
     public void PreviousSentence(){
