@@ -105,6 +105,7 @@ public class Shim_BackScript : MonoBehaviour
         //     text.text = "Script is finished! Congratulations~";
         // }
         EndTimer();
+        Debug.Log("InteractionManager.Instance.Interact(questManager.gameObject, 2);");
         InteractionManager.Instance.Interact(questManager.gameObject, 2);
         SoundManager.Instance.PlaySound(clapSound);
         float presentTime = timerObject.GetComponent<Timer>().GetTriggerIntervalTime();

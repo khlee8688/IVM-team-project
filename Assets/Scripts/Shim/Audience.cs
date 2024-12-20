@@ -149,6 +149,7 @@ public class Audience : MonoBehaviour, IInteractable
     private void HandleClapHandsQuest()
     {
         // 박수 모션 처리 코드
+        Debug.Log("\t\t\t\t\t\t\tHandleClapHandsQuest function called");
         SetAnimatorBool(false, true, false, false);
     }
 
