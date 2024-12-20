@@ -31,7 +31,7 @@ public class QuestManager : MonoBehaviour, IInteractable
             // QuestIndex 배열의 크기를 QuestNumber로 설정
             // 1부터 backScript.GetSentencesLength()-1까지의 숫자 중 QuestIndex 배열의 크기만큼 숫자 고르기
             // 고른 숫자들 오름차순으로 정렬해서 QuestIndex에 넣기
-            QuestIndex = SelectUniqueQuestIndices(QuestNumber, backScript.GetSentencesLength());
+            QuestIndex = SelectUniqueQuestIndices(QuestNumber, backScript.GetSentencesLength() - 2);
         }
         Debug.Log("QuestIndex is");
         foreach (int n in QuestIndex)

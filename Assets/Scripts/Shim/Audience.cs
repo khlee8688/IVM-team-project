@@ -93,8 +93,17 @@ public class Audience : MonoBehaviour, IInteractable
         if (isMissionTriggered)
         {
             // 추가 동작
-            Debug.Log("Mission complete");
+            Debug.Log("\t\t\t\tisMissionTriggered is " + isMissionTriggered);
+            Debug.Log("\t\t\t\tAudience's OnInteract function is called.");
+            Debug.Log("\t\t\t\tSuccessQuestNumber is " + questManager.GetSuccessQuestNumber());
             questManager.AddOneToSuccessQuestNumber();
+            Debug.Log("\t\t\t\tcall QuestManager's AddOneToSuccessQuestNumber function.");
+            Debug.Log("\t\t\t\tSuccessQuestNumber is " + questManager.GetSuccessQuestNumber());
+        }
+        else
+        {
+            Debug.Log("\t\t\t\tisMissionTriggered is " + isMissionTriggered);
+            Debug.Log("\t\t\t\tSuccessQuestNumber is " + questManager.GetSuccessQuestNumber());
         }
     }
 
