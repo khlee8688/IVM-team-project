@@ -68,12 +68,13 @@ public class PlayerController : MonoBehaviour
             if (hit.collider.gameObject.CompareTag("NPC"))
             {
                 highlightEffect.transform.position = hit.collider.gameObject.transform.position + new Vector3(0, 1, 0);
+                highlightEffect.SetActive(true);
             }
             else if (hit.collider.gameObject.CompareTag("Button"))
             {
                 highlightEffect.transform.position = hit.collider.gameObject.transform.position;
+                highlightEffect.SetActive(true);
             }
-            highlightEffect.SetActive(true);
         }
         else
         {
