@@ -17,6 +17,7 @@ public class Shim_BackScript : MonoBehaviour
     private int scriptIndex = 0;
     private int currentMissionIndex = 0;
     private string[] sentences;
+    public AudioClip clapSound;
 
     // Start is called before the first frame update
     void Start()
@@ -105,6 +106,7 @@ public class Shim_BackScript : MonoBehaviour
         // }
         EndTimer();
         InteractionManager.Instance.Interact(questManager.gameObject, 2);
+        SoundManager.Instance.PlaySound(clapSound);
         float presentTime = timerObject.GetComponent<Timer>().GetTriggerIntervalTime();
         int elapsedSeconds = Mathf.FloorToInt(presentTime);
         int minutes = elapsedSeconds / 60;
