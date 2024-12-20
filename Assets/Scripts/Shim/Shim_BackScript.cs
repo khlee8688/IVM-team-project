@@ -26,6 +26,7 @@ public class Shim_BackScript : MonoBehaviour
         sentences = script.Split(". ");
         text.text = sentences[scriptIndex];
         menuButton.gameObject.SetActive(false);
+        text.gameObject.SetActive(false);
         if (timerObject == null)
         {
             Debug.LogError("timerObject is not assigned");
@@ -53,6 +54,15 @@ public class Shim_BackScript : MonoBehaviour
     {
         //InteractionManager.Instance.Interact(timer.gameObject);
         timerObject.GetComponent<Timer>().UpdateTriggerTime();
+    }
+
+    public void SetScript(string str)
+    {
+        script = str;
+        sentences = script.Split(". ");
+        scriptIndex = 0;
+        text.text = sentences[scriptIndex];
+        text.gameObject.SetActive(true);
     }
 
     public void PreviousSentence()
